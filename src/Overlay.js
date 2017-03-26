@@ -24,13 +24,26 @@ export default class Overlay extends Component{
         position:'bottom-right',
         show:'always'
     };
+    renderOverlay(){
+        let {overlayContent,overlayList}=this.props;
+        if(overlayContent){
+            return overlayContent;
+        }
+        if(overlayList&&overlayList.length){
+            return overlayList.map(function(item){
+                return <span className='eg-overlay-item' onClick={item.callback}>
+                    {item.content}
+                </span>
+            })
+        }
 
+    }
     render(){
         return(<a className='eg-overlay-container'>
             {this.props.children}
             <div className={'eg-overlay '+this.props.position+' '+this.props.show}>
                 {
-                    this.props.overlayContent
+                    this.renderOverlay()
                 }
             </div>
         </a>)
