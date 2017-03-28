@@ -112,6 +112,25 @@ return /******/ (function(modules) { // webpackBootstrap
 	        _Component.apply(this, arguments);
 	    }
 
+	    Overlay.prototype.renderOverlay = function renderOverlay() {
+	        var _props = this.props;
+	        var overlayContent = _props.overlayContent;
+	        var overlayList = _props.overlayList;
+
+	        if (overlayContent) {
+	            return overlayContent;
+	        }
+	        if (overlayList && overlayList.length) {
+	            return overlayList.map(function (item) {
+	                return _react2['default'].createElement(
+	                    'span',
+	                    { className: 'eg-overlay-item', onClick: item.callback },
+	                    item.content
+	                );
+	            });
+	        }
+	    };
+
 	    Overlay.prototype.render = function render() {
 	        return _react2['default'].createElement(
 	            'a',
@@ -120,7 +139,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            _react2['default'].createElement(
 	                'div',
 	                { className: 'eg-overlay ' + this.props.position + ' ' + this.props.show },
-	                this.props.overlayContent
+	                this.renderOverlay()
 	            )
 	        );
 	    };
@@ -247,7 +266,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 	// module
-	exports.push([module.id, ".eg-overlay-container {\n  display: inline-block;\n  position: relative;\n  font-size: 0;\n}\n.eg-overlay-container:hover .eg-overlay {\n  opacity: 1;\n}\n.eg-overlay-container .eg-overlay {\n  position: absolute;\n  background: rgba(0, 0, 0, 0.7);\n  z-index: 200;\n  font-size: 12px;\n  opacity: 0;\n  padding: 5px 10px;\n  transition-duration: 500ms;\n  transform-property: opacity;\n}\n.eg-overlay-container .eg-overlay.always {\n  opacity: 1;\n}\n.eg-overlay-container .eg-overlay.top {\n  top: 0;\n  left: 0;\n  right: 0;\n}\n.eg-overlay-container .eg-overlay.top-left {\n  top: 0;\n  left: 0;\n}\n.eg-overlay-container .eg-overlay.top-right {\n  top: 0;\n  right: 0;\n}\n.eg-overlay-container .eg-overlay.bottom-left {\n  bottom: 0;\n  left: 0;\n}\n.eg-overlay-container .eg-overlay.bottom-right {\n  bottom: 0;\n  right: 0;\n}\n.eg-overlay-container .eg-overlay.bottom {\n  bottom: 0;\n  left: 0;\n  right: 0;\n}\n.eg-overlay-container .eg-overlay.left {\n  left: 0;\n  top: 0;\n  bottom: 0;\n}\n.eg-overlay-container .eg-overlay.right {\n  right: 0;\n  top: 0;\n  bottom: 0;\n}\n", ""]);
+	exports.push([module.id, ".eg-overlay-container {\n  display: inline-block;\n  position: relative;\n  font-size: 0;\n}\n.eg-overlay-container:hover .eg-overlay {\n  opacity: 1;\n}\n.eg-overlay-container .eg-overlay {\n  position: absolute;\n  background: rgba(0, 0, 0, 0.6);\n  z-index: 200;\n  font-size: 12px;\n  opacity: 0;\n  padding: 5px 10px;\n  transition-duration: 500ms;\n  transform-property: opacity;\n}\n.eg-overlay-container .eg-overlay .eg-overlay-item {\n  cursor: pointer;\n  color: #fff;\n  display: inline-block;\n}\n.eg-overlay-container .eg-overlay .eg-overlay-item:not(:last-child) {\n  margin-right: 7px;\n}\n.eg-overlay-container .eg-overlay.always {\n  opacity: 1;\n}\n.eg-overlay-container .eg-overlay.top {\n  top: 0;\n  left: 0;\n  right: 0;\n  text-align: center;\n}\n.eg-overlay-container .eg-overlay.top-left {\n  top: 0;\n  left: 0;\n}\n.eg-overlay-container .eg-overlay.top-right {\n  top: 0;\n  right: 0;\n}\n.eg-overlay-container .eg-overlay.bottom-left {\n  bottom: 0;\n  left: 0;\n}\n.eg-overlay-container .eg-overlay.bottom-right {\n  bottom: 0;\n  right: 0;\n}\n.eg-overlay-container .eg-overlay.bottom {\n  bottom: 0;\n  left: 0;\n  right: 0;\n  text-align: center;\n}\n.eg-overlay-container .eg-overlay.left {\n  left: 0;\n  top: 0;\n  bottom: 0;\n}\n.eg-overlay-container .eg-overlay.right {\n  right: 0;\n  top: 0;\n  bottom: 0;\n}\n", ""]);
 
 	// exports
 

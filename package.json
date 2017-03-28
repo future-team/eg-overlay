@@ -11,7 +11,9 @@
     "email": "amberonno@gmail.com"
   },
   "keywords": [
-    "trade-static"
+    "eg-overlay",
+    "overlay",
+    "eagle-ui"
   ],
   "main":"lib/",
   "dependencies": {
